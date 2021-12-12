@@ -1,6 +1,6 @@
 import os
 from types import MethodDescriptorType
-from flask import Flask, flash, request, redirect, url_for, send_from_directory
+from flask import Flask, flash, request, redirect, url_for, send_from_directory, render_template
 from werkzeug.utils import secure_filename
 import json
 from PIL import Image
@@ -11,6 +11,7 @@ app = Flask(__name__)
 
 UPLOAD_FOLDER = './static/uploads/'
 ENCODED_FOLDER = './static/encoded_files/'
+TEMPLATES_FOLDER = './templates/'
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -18,7 +19,7 @@ app.config['ENCODED_FOLDER'] = ENCODED_FOLDER
 
 @app.route('/')
 def index():
-    return "Steganography"
+    return render_template('index.ejs')
 
 @app.route('/encode')
 def get_encode():
@@ -26,6 +27,8 @@ def get_encode():
 
 @app.route('/encode', methods=['POST'])
 def encode_message():
+	print(request.files)
+	print("req form ",request.form)
 	if 'file' not in request.files:
 		flash('No file part')
 		return redirect(request.url)
@@ -37,7 +40,9 @@ def encode_message():
 
 	if file and file.filename.split('.')[-1]=='png':
 		filename = secure_filename(file.filename)
+		print("in here")
 		encode(file, request.form['message'])
+		print("done encoding")
 		return redirect(url_for('download_file', name='encoded_'+filename))
 
 
