@@ -1,4 +1,7 @@
 from PIL import Image
+import cv2
+import numpy as np
+from numpy import random
 
 def genData(data):
 		newd = []
@@ -66,9 +69,27 @@ def encode(img, message):
 	encode_enc(newimg, message)
 	newimg.save('./static/encoded_files/encoded_'+img.filename.split('/')[-1])
 
+def encode_and_split(img, message):
+	image = Image.open(img, 'r')
+	if (len(message) == 0):
+		raise ValueError('Data is empty')
+	newimg = image.copy()
+	encode_enc(newimg, message)
+	c, r = newimg.size
+	key = random.randint(256, size = (r, c, 4), dtype=np.uint8)
+	enc = np.array(newimg) ^ key
+	key = Image.fromarray(key)
+	enc = Image.fromarray(enc)
+	key.save('./static/encoded_files/encoded_key_'+img.filename.split('/')[-1])
+	enc.save('./static/encoded_files/encoded_enc_'+img.filename.split('/')[-1])
+
 
 def decode(img):
-	image = Image.open(img, 'r')
+	print("TYPE IS ",type(img))
+	if(type(img)==Image.Image):
+		image = img
+	else:
+		image = Image.open(img, 'r')
 
 	data = ''
 	imgdata = iter(image.getdata())
@@ -87,3 +108,12 @@ def decode(img):
 		if (pixels[-1] % 2 != 0):
 			return data
 
+def decodeSplit(img1, img2):
+	key = Image.open(img1, 'r')
+	enc = Image.open(img2, 'r')
+	newkey = key.copy()
+	newenc = enc.copy()
+	dec = np.array(newenc) ^ np.array(newkey)
+	decryptedImage = Image.fromarray(dec)
+	decryptedMessage = decode(decryptedImage)
+	return decryptedMessage

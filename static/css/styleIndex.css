@@ -1,0 +1,26 @@
+.body{
+    font-family: sans-serif;
+}
+.buttons{
+    text-align: center;
+}
+
+.buttons button{
+    width: 420px;
+    height: 250px;
+    background-color: rgb(255, 110, 132);
+    border-radius: 30px;
+    margin: 30px;
+    font-size: 30px;
+    padding: 25px;
+    padding-top: 0;
+}
+
+.info{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+a{
+    text-decoration: none;
+}

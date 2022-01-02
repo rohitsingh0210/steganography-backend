@@ -1,0 +1,37 @@
+/* ------------------------------------------form--------------------------------------------------------- */
+.file-picker-form{
+    background-color: lightblue;
+    height: 400px;
+    width: 70%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    margin: auto;
+}
+
+.file-picker-form p{
+    font-size: 14px;
+    margin-top: -18px;
+    font-family: sans-serif;
+}
+.file-picker-form button{
+    width: 150px;
+    height: 70px;
+    border-radius: 8px;
+    margin: 20px 10px;
+    font-size: 18px;
+}
+
+.file-picker{
+    width: 250px;
+    height: auto;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+#info{
+    font-size: 20px;
+    margin: 20px;
+}

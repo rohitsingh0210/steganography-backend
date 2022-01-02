@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Cryptography</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+    
+    <h1 class="greeting">Welcome encode your images</h1>
+
+    <div class="content">
+
+        <form class="file-picker-form" id="pickerForm" action="/encode" method="post" enctype = "multipart/form-data">
+            <input class="file-picker" type="file" name="file">
+            <p>*Image must be in PNG format</p>
+            <textarea class="message" type="text" name="message" placeholder="Enter message to be hidden"></textarea>
+            <div>
+                <button id="encodeBtn" type="submit">Encode</button>
+                <button id="encodeWithSplitBtn" type="submit">Encode and split</button>
+            </div>
+        </form>
+        
+        <div class="card-panel">
+            <div class="card">This is info about encode</div>
+            <div class="card">This is info about encode and split</div>
+        </div>
+    </div>
+
+    <footer>Copyright &copy; TY81 2021</footer>
+
+    <script src="../static/js/encode.js"></script>
+</body>
+</html>

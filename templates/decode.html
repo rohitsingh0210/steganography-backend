@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Cryptography | Encode</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/styleDecode.css">
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+    
+    <h1 class="greeting">Welcome, Decode your images</h1>
+
+    <form class="file-picker-form" action="/decode" method="post" enctype = "multipart/form-data">
+        <input class="file-picker" type="file" name="file">
+        <p>*Image must be in PNG format</p>
+        <button>Decode</button>
+        <p id="info">Upload the image with a hidden message in it to extract the message</p>
+    </form>
+    
+    <footer>Copyright &copy; TY81 2021</footer>
+    
+</body>
+</html>
