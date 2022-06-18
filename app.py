@@ -108,8 +108,7 @@ def decode_message_with_split():
 		filename2 = secure_filename(file2.filename)
 		print(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 		decoded_message = decodeSplit(file, file2)
-
-		return decoded_message
+		return '<h1>'+decoded_message+'</h1>'
 
 @app.route('/encode/<name>')
 def download_file(name):

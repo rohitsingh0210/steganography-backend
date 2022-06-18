@@ -3,17 +3,19 @@
 }
 .buttons{
     text-align: center;
+    cursor: pointer;
 }
 
 .buttons button{
     width: 420px;
     height: 250px;
-    background-color: rgb(255, 110, 132);
+    background-color: #FE7E6D;
     border-radius: 30px;
     margin: 30px;
     font-size: 30px;
     padding: 25px;
     padding-top: 0;
+    cursor: pointer;
 }
 
 .info{
